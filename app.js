@@ -36,7 +36,10 @@ function getCurrentUtcTime() {
     "0"
   );
 
-  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`;
+  return `${year}-${month}-${day}T${hours}:${minutes}:${milliseconds.slice(
+    0,
+    2
+  )}Z`;
 }
 
 const currentUtcTime = getCurrentUtcTime();
