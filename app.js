@@ -25,7 +25,7 @@ const currentDayName = daysOfWeek[currentDayIndex];
 // utc time
 const currentUtcTime = new Date().toISOString();
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   const { slack_name, track } = req.query;
   const responseJson = {
     slack_name: slack_name,
