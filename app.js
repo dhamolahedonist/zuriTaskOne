@@ -33,8 +33,8 @@ app.get("/", (req, res) => {
     utc_time: currentUtcTime,
     track: track,
     github_file_url:
-      "https://github.com/dhamolahedonist/FlutterwaveApiClone/blob/main/README.md",
-    github_repo_url: "https://github.com/dhamolahedonist/FlutterwaveApiClone",
+      "https://github.com/dhamolahedonist/zuriTaskOne/blob/main/README.md",
+    github_repo_url: "https://github.com/dhamolahedonist/zuriTaskOne",
     status_code: 200,
   });
 });
