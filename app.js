@@ -27,7 +27,7 @@ const currentUtcTime = new Date().toISOString();
 
 app.get("/", (req, res) => {
   const { slack_name, track } = req.query;
-  return res.status(200).json({
+  const responseJson = {
     slack_name: slack_name,
     current_day: currentDayName,
     utc_time: currentUtcTime,
@@ -36,7 +36,9 @@ app.get("/", (req, res) => {
       "https://github.com/dhamolahedonist/zuriTaskOne/blob/main/README.md",
     github_repo_url: "https://github.com/dhamolahedonist/zuriTaskOne",
     status_code: 200,
-  });
+  };
+  res.setHeader("Content-Type", "application/json"); // Set the Content-Type header
+  res.status(200).json(responseJson); // Send the JSON response
 });
 
 app.listen(PORT, () => {
