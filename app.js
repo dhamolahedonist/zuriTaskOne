@@ -1,4 +1,5 @@
 const express = require("express");
+const helper = require("./helper");
 
 require("dotenv").config();
 const PORT = process.env.PORT;
@@ -7,42 +8,9 @@ const app = express();
 
 app.use(express.json());
 
-// get day
-const daysOfWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+const currentDayName = helper.currentDayName();
 
-const currentDate = new Date();
-const currentDayIndex = currentDate.getDay();
-const currentDayName = daysOfWeek[currentDayIndex];
-
-// utc time
-function getCurrentUtcTime() {
-  const currentDate = new Date();
-  const year = currentDate.getUTCFullYear();
-  const month = String(currentDate.getUTCMonth() + 1).padStart(2, "0"); // Adding 1 to month since it's zero-based
-  const day = String(currentDate.getUTCDate()).padStart(2, "0");
-  const hours = String(currentDate.getUTCHours()).padStart(2, "0");
-  const minutes = String(currentDate.getUTCMinutes()).padStart(2, "0");
-  const seconds = String(currentDate.getUTCSeconds()).padStart(2, "0");
-  const milliseconds = String(currentDate.getUTCMilliseconds()).padStart(
-    3,
-    "0"
-  );
-
-  return `${year}-${month}-${day}T${hours}:${minutes}:${milliseconds.slice(
-    0,
-    2
-  )}Z`;
-}
-
-const currentUtcTime = getCurrentUtcTime();
+const currentUtcTime = helper.getCurrentUtcTime();
 
 app.get("/api", (req, res) => {
   const { slack_name, track } = req.query;
