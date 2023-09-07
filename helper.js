@@ -27,11 +27,7 @@ const helper = {
       3,
       "0"
     );
-
-    return `${year}-${month}-${day}T${hours}:${minutes}:${milliseconds.slice(
-      0,
-      3
-    )}Z`;
+    return `${year}-${month}-${day}T${hours}:${minutes}:${milliseconds}:${seconds}Z`;
   },
 };
 module.exports = helper;
