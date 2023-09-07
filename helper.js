@@ -27,7 +27,8 @@ const helper = {
       3,
       "0"
     );
-    return `${year}-${month}-${day}T${hours}:${minutes}:${milliseconds}:${seconds}Z`;
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
+    // return `${year}-${month}-${day}T${hours}:${minutes}:${milliseconds}:${seconds}Z`;
   },
 };
 module.exports = helper;
